@@ -4,19 +4,23 @@ const add = document.getElementById('add');
 const minus = document.getElementById('minus');
 const number = document.querySelector('span');
 
+const ADD = 'ADD';
+const MINUS = 'MINUS';
+
 const reducer = (state = 0, action) => {
-  if (action.type === 'add') return state + 1;
-  if (action.type === 'minus') return state - 1;
+  if (action.type === ADD) return state + 1;
+  if (action.type === MINUS) return state - 1;
   return state;
 };
 
 const store = createStore(reducer);
 
-store.dispatch({ type: 'add' });
-store.dispatch({ type: 'add' });
-store.dispatch({ type: 'minus' });
+const onChange = () => (number.innerText = store.getState());
 
-console.log(store.getState());
+store.subscribe(onChange);
+
+add.addEventListener('click', () => store.dispatch({ type: ADD }));
+minus.addEventListener('click', () => store.dispatch({ type: MINUS }));
 
 /************** TAKE AWAY
 createStore는 data(state)를 저장하는 store만드는 function

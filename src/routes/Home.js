@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../Store';
+import { handleAddTodo } from '../Store';
 
 function Home(props) {
   console.log(props);
@@ -10,7 +10,7 @@ function Home(props) {
     e.preventDefault();
     console.log(todo);
     // addToDo(todo);
-    props.handleAddTodo(todo);
+    props.addTodo(todo);
     setTodo('');
   }
 
@@ -43,7 +43,7 @@ function mapStateToProps(state) {
 // mapStateToProps: store로부터 dispatch를 Home에게 전달
 function mapDispatchToProps(dispatch) {
   return {
-    handleAddTodo: (todo) => dispatch(addTodo(todo)),
+    addTodo: (todo) => dispatch(handleAddTodo(todo)),
   };
 }
 // function mapDispatchToProps(dispatch) {

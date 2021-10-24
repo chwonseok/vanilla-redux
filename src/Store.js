@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 const ADD = 'ADD';
 const DELETE = 'DELETE';
 
-export const addTodo = (todo) => {
+export const handleAddTodo = (todo) => {
   return {
     type: ADD,
     id: Date.now(),

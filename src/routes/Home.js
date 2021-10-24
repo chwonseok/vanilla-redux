@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { actionCreators } from '../Store';
+import { addTodo } from '../Store';
 
-function Home({ toDos, addToDo }) {
-  const [text, setText] = useState('');
+function Home(props) {
+  console.log(props);
+  const [todo, setTodo] = useState('');
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log(text);
-    addToDo(text);
-    setText('');
+    console.log(todo);
+    // addToDo(todo);
+    props.handleAddTodo(todo);
+    setTodo('');
   }
 
   function onChange(e) {
-    setText(e.target.value);
+    setTodo(e.target.value);
   }
 
   return (
@@ -24,25 +26,30 @@ function Home({ toDos, addToDo }) {
           onChange={onChange}
           type="text"
           placeholder="enter what to do"
-          value={text}
+          value={todo}
         />
       </form>
-      <ul>{JSON.stringify(toDos)}</ul>
+      <ul>{JSON.stringify(props.todos)}</ul>
     </>
   );
 }
 
-// mapStateToProps를 이용해 store로부터 state를 Home에게 가져다 줄거임
+// mapStateToProps: store로부터 state를 Home에게 전달
 function mapStateToProps(state) {
   return {
-    toDos: state,
+    todos: state,
   };
 }
-
+// mapStateToProps: store로부터 dispatch를 Home에게 전달
 function mapDispatchToProps(dispatch) {
   return {
-    addToDo: (text) => dispatch(actionCreators.addTodo(text)),
+    handleAddTodo: (todo) => dispatch(addTodo(todo)),
   };
 }
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     addToDo: (text) => dispatch(actionCreators.addTodo(text)),
+//   };
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

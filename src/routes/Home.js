@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
-export default function Home() {
+function Home(props) {
+  console.log(props);
   const [text, setText] = useState('');
 
   function onSubmit(e) {
@@ -24,6 +26,20 @@ export default function Home() {
           value={text}
         />
       </form>
+      <ul></ul>
     </>
   );
 }
+
+// mapStateToProps를 이용해 store로부터 state를 Home에게 가져다 줄거임
+function mapStateToProps(state) {
+  return {
+    test: state,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return { dispatch };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

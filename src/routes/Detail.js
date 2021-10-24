@@ -1,1 +1,3 @@
-export default () => 'Detail';
+export default function Detail() {
+  return 'Detail';
+}

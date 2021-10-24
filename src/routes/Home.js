@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { actionCreators } from '../Store';
 
 function Home({ toDos, addToDo }) {
-  // console.log(props);
   const [text, setText] = useState('');
 
   function onSubmit(e) {

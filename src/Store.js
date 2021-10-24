@@ -24,7 +24,7 @@ export const actionCreators = {
 
 const reducer = (state = [], action) => {
   if (action.type === ADD)
-    return [...state, { text: action.todo, id: action.id }];
+    return [...state, { text: action.text, id: Date.now() }];
   if (action.type === DELETE)
     return state.filter((todo) => todo.id !== action.id);
   return state;

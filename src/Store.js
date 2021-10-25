@@ -33,7 +33,6 @@ export const deleteTodo = (e) => {
 };
 
 const reducer = (state = [], action) => {
-  console.log(action);
   if (action.type === ADD)
     return [...state, { todo: action.todo, id: action.id }];
   if (action.type === DELETE)

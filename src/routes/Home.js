@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
+import Todo from '../components/Todo';
 import { handleAddTodo } from '../Store';
 
-function Home(props) {
-  console.log(props);
+function Home({ todos, addTodo }) {
   const [todo, setTodo] = useState('');
 
   function onSubmit(e) {
     e.preventDefault();
     console.log(todo);
     // addToDo(todo);
-    props.addTodo(todo);
+    addTodo(todo);
     setTodo('');
   }
 
@@ -29,7 +29,11 @@ function Home(props) {
           value={todo}
         />
       </form>
-      <ul>{JSON.stringify(props.todos)}</ul>
+      <ul>
+        {todos.map((todo) => (
+          <Todo todo={todo.todo} key={todo.id} />
+        ))}
+      </ul>
     </>
   );
 }

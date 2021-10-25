@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { handleDelTodo } from '../Store';
 
-function Todo({ todo, deleteTodo }) {
+function Todo({ todo, deleteTodo, id }) {
   function onClick() {
     deleteTodo();
     // deleteTodo(id), 다른 방법
@@ -9,7 +10,9 @@ function Todo({ todo, deleteTodo }) {
 
   return (
     <li>
-      {todo} <button onClick={onClick}>DEL</button>
+      <Link to={`${id}`}>
+        {todo} <button onClick={onClick}>DEL</button>
+      </Link>
     </li>
   );
 }

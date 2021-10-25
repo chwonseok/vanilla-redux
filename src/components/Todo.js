@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { handleDelTodo } from '../Store';
+import { remove } from '../Store';
 
 function Todo({ todo, deleteTodo, id }) {
   function onClick() {
@@ -18,7 +18,7 @@ function Todo({ todo, deleteTodo, id }) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    deleteTodo: () => dispatch(handleDelTodo(ownProps.id)), // 이 방법은 ownProps를 이용하는 방법
+    deleteTodo: () => dispatch(remove(ownProps.id)), // 이 방법은 ownProps를 이용하는 방법
     // deleteTodo: (id) => dispatch(handleDelTodo(id)), 다른 방법
   };
 }

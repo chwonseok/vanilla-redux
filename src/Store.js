@@ -11,6 +11,13 @@ export const handleAddTodo = (todo) => {
   };
 };
 
+export const handleDelTodo = (id) => {
+  return {
+    type: DELETE,
+    id: id,
+  };
+};
+
 // const deleteTodo = (id) => {
 //   return {
 //     type: DELETE,

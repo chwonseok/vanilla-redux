@@ -8,7 +8,6 @@ function Home({ todos, addTodo }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log(todo);
     // addToDo(todo);
     addTodo(todo);
     setTodo('');
@@ -31,7 +30,7 @@ function Home({ todos, addTodo }) {
       </form>
       <ul>
         {todos.map((todo) => (
-          <Todo todo={todo.todo} key={todo.id} />
+          <Todo {...todo} key={todo.id} />
         ))}
       </ul>
     </>

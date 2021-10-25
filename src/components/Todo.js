@@ -1,13 +1,10 @@
 import { connect } from 'react-redux';
 import { handleDelTodo } from '../Store';
 
-function Todo({ todo, id, deleteTodo }) {
-  console.log(todo);
-  console.log(id);
-  console.log(deleteTodo);
-
+function Todo({ todo, deleteTodo }) {
   function onClick() {
-    deleteTodo(id);
+    deleteTodo();
+    // deleteTodo(id), 다른 방법
   }
 
   return (
@@ -17,9 +14,10 @@ function Todo({ todo, id, deleteTodo }) {
   );
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
-    deleteTodo: (id) => dispatch(handleDelTodo(id)),
+    deleteTodo: () => dispatch(handleDelTodo(ownProps.id)), // 이 방법은 ownProps를 이용하는 방법
+    // deleteTodo: (id) => dispatch(handleDelTodo(id)), 다른 방법
   };
 }
 

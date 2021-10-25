@@ -8,7 +8,6 @@ function Home({ todos, addTodo }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    // addToDo(todo);
     addTodo(todo);
     setTodo('');
   }

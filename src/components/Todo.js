@@ -10,9 +10,8 @@ function Todo({ todo, deleteTodo, id }) {
 
   return (
     <li>
-      <Link to={`${id}`}>
-        {todo} <button onClick={onClick}>DEL</button>
-      </Link>
+      <Link to={`${id}`}>{todo}</Link>
+      <button onClick={onClick}>DEL</button>
     </li>
   );
 }

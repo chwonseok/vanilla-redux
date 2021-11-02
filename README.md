@@ -17,4 +17,4 @@ Learned Vanilla Redux and React Redux
 
 ## 정리 link
 
-https://chwonseok.notion.site/Redux-44351ebc3a7e445daccbe3376497333e
+[여기에](https://chwonseok.notion.site/Redux-bcf3d87940f54298bfc5535955e68f44)
